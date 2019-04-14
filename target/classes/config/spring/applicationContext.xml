@@ -31,7 +31,7 @@
 	<!-- 配置写库 继承abstractDataSource-->
 	<bean id="dataSourceWrite" parent="abstractDataSource">
 		<!-- 基本url、username、password -->
-		<property name="url" value="jdbc:mysql://94.191.88.237:3306/selc?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
+		<property name="url" value="jdbc:mysql://主机ip:3306/selc?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
@@ -39,7 +39,7 @@
 	<!-- 配置读库 继承abstractDataSource-->
 	<bean id="dataSourceRead" parent="abstractDataSource">
 		<!-- 基本 url、username、password -->
-		<property name="url" value="jdbc:mysql://62.234.69.162:3306/selc?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
+		<property name="url" value="jdbc:mysql://从机ip:3306/selc?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
 		<property name="username" value="root" />
 		<property name="password" value="wish" />
 	</bean>
