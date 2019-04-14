@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.fuzui.StudentInfo.mapper.SelectCourseMapper">
+
+    <!-- 为了返回List，类型而定义的resultMap -->
+    <resultMap type="SC" id="resultListSC">
+        <result column="id" property="id" />
+        <result column="sid" property="sid" />
+        <result column="cid" property="cid" />
+    </resultMap>
+
+    <!-- 三表联查，可优化···· -->
+    <resultMap type="StuSelectResult" id="resultListStuSelectResult">
+        <result column="courseclass" property="classr" />
+        <result column="coursetime" property="coursetime" />
+        <result column="courseweek" property="courseweek" />
+        <result column="cname" property="cname" />
+        <result column="classroom" property="classroom" />
+        <result column="credits" property="credits" />
+        <result column="period" property="period" />
+        <result column="tname" property="tname" />
+    </resultMap>
+    <!-- 双表查询 -->
+    <resultMap type="StuExitSelect" id="resultListStuExitSelect">
+        <result column="cid" property="cid" />
+        <result column="Cname" property="Cname" />
+        <result column="sid" property="sid" />
+        <result column="totalNum" property="totalNum" />
+        <result column="stuSum" property="stuSum" />
+    </resultMap>
+
+    <!-- 学生 -->
+    <resultMap type="Student" id="resultListStudent">
+        <result column="sid" property="sid" />
+        <result column="sname" property="sname" />
+        <result column="sidcard" property="sidcard" />
+        <result column="ssex" property="ssex" />
+        <result column="spassword" property="spassword" />
+        <result column="sage" property="sage" />
+        <result column="classr" property="classr" />
+        <result column="profession" property="profession" />
+        <result column="college" property="college" />
+    </resultMap>
+
+    <!-- 选课 -->
+    <insert id="selectCourse">
+		insert into sc(cid,sid)
+		value (#{cid}, #{sid})
+	</insert>
+
+    <!-- 判断是否加入过此课程 -->
+    <select id="existCourse" resultType="java.lang.String">
+        select * from sc where sid = #{sid} and cid = #{cid}
+    </select>
+
+    <!-- 查询全部 -->
+    <select id="getAllSC" parameterType="map" resultMap="resultListSC">
+        select * from sc where sid = #{sid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!-- 根据课程编号查询课程选课信息 -->
+    <select id="getSCByCid" parameterType="map" resultMap="resultListSC">
+        select * from sc where cid = #{cid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!-- 根据学号查询本人已选课程，可优化···· -->
+    <select id="getSCBySid" parameterType="map" resultMap="resultListStuSelectResult">
+        select courseplan.courseclass,course.cname,courseplan.courseclass,courseplan.coursetime,courseplan.courseweek,
+        courseplan.classroom,courseplan.credits,courseplan.period,teacher.tname
+        from sc,courseplan,course,teacher where sc.cid =courseplan.cid and sc.cid = course.cid  and courseplan.tid= teacher.tid and sc.sid= #{sid}
+        <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!-- 根据学号退选（待确定··） -->
+    <select id="getExitBysid" parameterType="map" resultMap="resultListStuExitSelect">
+        select cname,sc.cid,sid from course,sc where sc.cid=course.cid and sid = #{sid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!-- 退选 -->
+    <delete id="deleteSC" parameterType="String">
+		delete from sc where cid = #{cid} and sid = #{sid}
+	</delete>
+
+    <!-- 查看课程已选人数 -->
+    <select id="getLookByTid" parameterType="map" resultMap="resultListStuExitSelect">
+        select cname,courseplan.cid,tid,Totalnum,(SELECT count(*) FROM sc where cid = courseplan.cid) stuSum
+        from course,courseplan where courseplan.cid=course.cid and courseplan.tid = #{tid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!-- 查看课程的学生详细信息 -->
+    <select id="getByStuSid" parameterType="map" resultMap="resultListStudent">
+        SELECT * from student,sc where student.sid=sc.sid and cid = #{cid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+</mapper>
