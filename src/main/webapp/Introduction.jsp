@@ -93,6 +93,11 @@
           </li>
           <li class="list-group-item">······</li>
         </ul>
+ <br>
+ <br>       
+ <center><font face="华文行楷" size=6 color="blue">
+当你的才华还撑不起你的野心的时候，<br>你就应该静下心来学习。</font>
+</center>
 	
 <script type="text/javascript" src="/StudentInfo/utils/scripts/flat-ui.js"></script><script src="/StudentInfo/utils/scripts/bganimation.js"></script></body>
 </html>

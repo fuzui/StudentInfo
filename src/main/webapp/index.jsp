@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="/StudentInfo/utils/image/favicon.ico"
 	type="utils/image/x-icon" />
 <meta charset="UTF-8">
-<title>登录页</title>
+<title>学生信息管理系统</title>
 
 <script type="text/javascript" src="utils/js/jquery-3.3.1.min.js"></script>
 

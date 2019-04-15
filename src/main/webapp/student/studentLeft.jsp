@@ -4,7 +4,7 @@
 
 
 <nav class="navbar navbar-inverse navbar-expand-lg" role="navigation">
-  <a class="navbar-brand" href="#">网上选课系统</a>
+  <a class="navbar-brand" href="#">学生信息管理系统</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
   <div class="collapse navbar-collapse" id="navbar-collapse-01">
   <ul class="nav navbar-nav mr-auto">

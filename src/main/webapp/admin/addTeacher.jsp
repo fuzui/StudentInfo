@@ -5,7 +5,7 @@
 <html>
 	<head><script type="text/javascript" src="/StudentInfo/utils/scripts/flat-ui.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="shortcut icon" href="/StudentInfo/utils/image/favicon.ico" type="image/x-icon" />
 		<meta charset="UTF-8">
-		<title>网上选课系统</title>
+		<title>学生信息管理系统</title>
 		<script type="text/javascript" src="/StudentInfo/utils/js/jquery-3.3.1.min.js"></script>
 		<!-- Loading Bootstrap -->
 		<link href="/StudentInfo/utils/css/vendor/bootstrap.min.css" rel="stylesheet">

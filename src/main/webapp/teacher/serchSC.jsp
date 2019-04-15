@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/StudentInfo/utils/image/favicon.ico"
 	type="image/x-icon" />
 <meta charset="UTF-8">
-<title>网上选课系统</title>
+<title>学生信息管理系统</title>
 
 <script type="text/javascript" src="/StudentInfo/utils/js/jquery-3.3.1.min.js"></script>
 <!-- Loading Bootstrap -->
