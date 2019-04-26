@@ -21,7 +21,8 @@
 </div>
 	<div class="container">
   <div class="row">
-    
+      <font color="red">因为mysql连接失效问题，有时候登录会出现异常，返回再次登录即可！(待修复)</font>
+      <br>
       <h5>应用技术</h5>
       <br>
       
