@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>px / rem 默认显示两行内容 点击进看全文 显示全部</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <style>
+		p{margin:0;}
+		a{text-decoration:none;}
+		.newlist{overflow:hidden;margin-bottom:10px;}
+		.newlist .item{width:260px;border:1px solid #e6e6e6;border-radius:5px;padding:5px;float:left;margin:0 10px 10px 0;}
+		.newlist .item .content{overflow:hidden;}
+		.newlist .item a.expand{color:#f60;font-size:12px;}		
+		
+		.newlist .item .content{height:48px;line-height:24px;font-size:12px;}/**px 2行即 2倍行高**/
+		.newlist.sp2 .item .content{height:3rem;line-height:1.5rem;font-size:0.7rem}/**rem 2行即 2倍行高***/
+		
+		.newlist .item .content.auto,.newlist.sp2 .item .content.auto{height:auto;}
+    </style>
+</head>
+<body>
+
+<h3>px 二行 显示 查看全文</h3>
+<div class="newlist">
+	<div class="item">
+    	<div class="content"><div class="txt">一身纯白的套状，面带微笑。每天早上，她走过公司的大门，人们都会投去羡慕的目光。</div></div>
+        <a href="javascript:;" class="expand">查看全文</a>
+    </div>
+    <div class="item">
+    	<div class="content"><div class="txt">如果你问一个人，你活着是为了什么？有人会说快乐，有的人是幸福，有的人是成功……但肯定没有一个人会说自己活着是为了生气的。　没有谁喜欢有事儿没事儿生气玩儿的，但很多人却有事儿没事儿就生气。其实，不是生活中的不顺心太多，而是因为我们忘了自己活着是为了什么。</div></div>
+        <a href="javascript:;" class="expand">查看全文</a>
+    </div>
+</div>
+<h3>rem 二行 显示 查看全文</h3>
+<div class="newlist sp2">
+	<div class="item">
+    	<div class="content"><div class="txt">一身纯白的套状，面带微笑。每天早上，她走过公司的大门，人们都会投去羡慕的目光。</div></div>
+        <a href="javascript:;" class="expand">查看全文</a>
+    </div>
+    <div class="item">
+    	<div class="content"><div class="txt">如果你问一个人，你活着是为了什么？有人会说快乐，有的人是幸福，有的人是成功……但肯定没有一个人会说自己活着是为了生气的。　没有谁喜欢有事儿没事儿生气玩儿的，但很多人却有事儿没事儿就生气。其实，不是生活中的不顺心太多，而是因为我们忘了自己活着是为了什么。</div></div>
+        <a href="javascript:;" class="expand">查看全文</a>
+    </div>
+</div>
+
+<script>
+$(function(){
+	$(".newlist .item").each(function(){
+		var obj=$(this);
+		if(obj.find(".content").eq(0).height()<obj.find(".txt").eq(0).height()){
+			obj.find(".expand").eq(0).click(function(){
+					 if($(this).text()=="查看全文"){
+						  $(this).parent().find(".content").eq(0).addClass("auto");
+						  $(this).html("收起全文");
+					  }
+					  else{
+						  $(this).parent().find(".content").eq(0).removeClass("auto");
+						  $(this).html("查看全文");
+					  }
+			});
+		}
+		else{
+			$(this).find(".expand").eq(0).text("没有更多");
+		}
+	});
+});
+</script>
+</body>
+</html>
