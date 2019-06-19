@@ -26,12 +26,12 @@
 		<!-- 配置获取连接等待超时的实际 -->
 		<property name="maxWait" value="60000" />
 	</bean>
-	
+	<!-- 如只有单个数据库，只需将下面两个ip、账号密码都改成一样的即可，例如127.0.0.1  root root -->
 	
 	<!-- 配置写库 继承abstractDataSource-->
 	<bean id="dataSourceWrite" parent="abstractDataSource">
 		<!-- 基本url、username、password -->
-		<property name="url" value="jdbc:mysql://120.79.5.252:3306/selc?serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
+		<property name="url" value="jdbc:mysql://主机ip:3306/selc?serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
@@ -39,7 +39,7 @@
 	<!-- 配置读库 继承abstractDataSource-->
 	<bean id="dataSourceRead" parent="abstractDataSource">
 		<!-- 基本 url、username、password -->
-		<property name="url" value="jdbc:mysql://62.234.69.162:3306/selc?serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
+		<property name="url" value="jdbc:mysql://丛机ip:3306/selc?serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true&amp;allowMultiQueries=true" />
 		<property name="username" value="root" />
 		<property name="password" value="wish" />
 	</bean>
