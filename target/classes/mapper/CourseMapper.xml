@@ -36,32 +36,32 @@
 
     <!-- 根据课程编号查询出课程实体 -->
     <select id="getByCouCid" parameterType="String" resultType="net.fuzui.StudentInfo.pojo.Course">
-		SELECT * from course where cid = #{cid}
+		SELECT * from course c where c.cid = #{cid} and not exists(select 1 from grade g where g.cid=c.cid )
 	</select>
 
     <!-- 查询全部课程 -->
     <select id="selectCourseBySql" parameterType="map" resultMap="resultListCourse">
-		select * from course <!-- limit #{pageNo} , #{pageSize} -->
+		select * from course c where not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
 	</select>
 
     <!-- 根据课程编号查询课程信息 -->
     <select id="getByCourseCid" parameterType="map" resultMap="resultListCourse">
-		select * from course where cid = #{cid} <!-- limit #{pageNo} , #{pageSize} -->
+		select * from course c where c.cid = #{cid} and not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
 	</select>
 
     <!-- 根据课程名称查询课程信息 -->
     <select id="getByCourseCname" parameterType="map" resultMap="resultListCourse">
-		select * from course where cname = #{cname}<!--  limit #{pageNo} , #{pageSize} -->
+		select * from course c where c.cname = #{cname} and not exists(select 1 from grade g where g.cid=c.cid )<!--  limit #{pageNo} , #{pageSize} -->
 	</select>
 
     <!-- 根据学院查询学生信息 -->
     <select id="getByCourseCol" parameterType="map" resultMap="resultListCourse">
-		select * from course where belongcoll = #{belongcoll} <!-- limit #{pageNo} , #{pageSize} -->
+		select * from course c where c.belongcoll = #{belongcoll} and not exists(select 1 from grade g where g.cid=c.cid ) <!-- limit #{pageNo} , #{pageSize} -->
 	</select>
 
     <!-- 根据课程类型查询学生信息 -->
     <select id="getByCourseType" parameterType="map" resultMap="resultListCourse">
-		select * from course where type = #{type} <!-- limit #{pageNo} , #{pageSize} -->
+		select * from course c where c.type = #{type} and not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
 	</select>
 
     <!-- ajax验证课程编号是否存在 -->

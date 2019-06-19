@@ -91,6 +91,11 @@
 					<td>${requestScope.college }</td>
 					<td>不可修改</td>
 				</tr>
+				<tr>
+					<td>已获学分</td>
+					<td>${requestScope.credits }</td>
+					<td>不可修改</td>
+				</tr>
 
 
 			</table></div></div></div>

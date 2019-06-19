@@ -1,6 +1,7 @@
 package net.fuzui.StudentInfo.service.impl;
 
 import net.fuzui.StudentInfo.mapper.CoursePlanMapper;
+import net.fuzui.StudentInfo.pojo.CourseGrade;
 import net.fuzui.StudentInfo.pojo.CoursePlan;
 import net.fuzui.StudentInfo.service.CoursePlanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,4 +145,23 @@ public class CoursePlanServiceImpl implements CoursePlanService {
     public String existsCoursePlan(String cid) {
         return coursePlanMapper.existsCoursePlan(cid);
     }
+    /**
+     *  	根据课程编号查询该课程学分
+     * @param cid
+     * @return
+     */
+	@Override
+	public Integer getCreditsByCid(String cid) {
+		return coursePlanMapper.getCreditsByCid(cid);
+	}
+
+	@Override
+	public List<CourseGrade> getCourseGrade(int pageNo, int pageSize, String cid) {
+		// TODO Auto-generated method stub
+		Map<String,Object> data = new HashMap<String,Object>();
+        data.put("pageNo",(pageNo-1) * pageSize);
+        data.put("pageSize",pageSize);
+        data.put("cid",cid);
+        return coursePlanMapper.getCourseGrade(data);
+	}
 }

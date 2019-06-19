@@ -36,6 +36,8 @@
 									<th>总人数</th>
 									<th>已报名人数</th>
 									<th>操作</th>
+									<th>结课</th>
+									<th>成绩查询</th>
 								</tr>
 								<c:forEach var="exit" items="${sessionScope.sesList}"
 									varStatus="loop">
@@ -45,6 +47,10 @@
 										<td>${exit.stuSum }</td>
 										<td><a class="btn btn-default" href="/StudentInfo/TeacherHandler/looksel/${exit.cid }/${exit.cname}/1">
 												查看名单 </a></td>
+										<td><a class="btn btn-default" href="/StudentInfo/TeacherHandler/endcou/${exit.cid }/${exit.cname}/1">
+												结课 </a></td>
+										<td><a class="btn btn-default" href="/StudentInfo/TeacherHandler/endcougrade/${exit.cid }/${exit.cname}/1">
+												查询成绩 </a></td>
 									</tr>
 								</c:forEach>
 							</table>

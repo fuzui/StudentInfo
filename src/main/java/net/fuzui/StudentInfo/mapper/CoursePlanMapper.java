@@ -1,5 +1,6 @@
 package net.fuzui.StudentInfo.mapper;
 
+import net.fuzui.StudentInfo.pojo.CourseGrade;
 import net.fuzui.StudentInfo.pojo.CoursePlan;
 import org.apache.ibatis.annotations.Param;
 
@@ -84,10 +85,25 @@ public interface CoursePlanMapper {
     public String ajaxGetCoursePlan(@Param("coursetime") String coursetime,@Param("courseweek") String courseweek,@Param("classroom") String classroom);
 
     /**
-     *  根据课程编号查询该课程，用于查询是否有有安排课程
+     *  	根据课程编号查询该课程，用于查询是否有有安排课程
      * @param cid
      * @return
      */
     public String existsCoursePlan(String cid);
+    
+    /**
+     *  	根据课程编号查询该课程学分
+     * @param cid
+     * @return
+     */
+    public Integer getCreditsByCid(String cid);
+    
+
+    /**
+     * 根据课程id查询该课程的上课教师，以方便查询教师具体信息
+     * @param data
+     * @return  查询结果
+     */
+    public List<CourseGrade> getCourseGrade(Map<String, Object> data);
 
 }

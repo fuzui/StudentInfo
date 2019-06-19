@@ -12,10 +12,11 @@
 				href="/StudentInfo/TeacherHandler/managecou/${sessionScope.tid }/1"><strong>管理教学课程</strong></a>
 			
 			<li><a
-				href="/StudentInfo/TeacherHandler/sercsc/${sessionScope.tid }/1"><strong>查看选课名单</strong></a>
+				href="/StudentInfo/TeacherHandler/sercsc/${sessionScope.tid }/1"><strong>查看名单/结课</strong></a>
 			
 			<li><a
 				href="/StudentInfo/TeacherHandler/queryvita/${sessionScope.tid }"><strong>管理本人信息</strong></a>
+			
 		</ul>
 	<p class="navbar-text navbar-right">你好！ ${sessionScope.tname} &nbsp;老师<a href="/StudentInfo/LoginHandler/teacherlogout" class="navbar-link" href="#">注销</a></p>
 	<!--
