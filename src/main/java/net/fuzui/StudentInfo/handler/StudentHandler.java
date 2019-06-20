@@ -61,7 +61,7 @@ public class StudentHandler {
 	public String queryVita(@PathVariable(value = "sid") String sid, Model model) {
 
 		Grade grade = new Grade();
-		Integer credits = gradeService.queryCreditsSum(sid);
+		String credits = gradeService.queryCreditsSum(sid);
 		Student student = new Student();
 		student = studentService.getByStuSid(sid);
 		model.addAttribute("sid", student.getSid());

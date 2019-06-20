@@ -24,7 +24,7 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public int queryCreditsSum(String sid) {
+	public String queryCreditsSum(String sid) {
 		return gradeMapper.queryCreditsSum(sid);
 	}
 

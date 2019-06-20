@@ -33,7 +33,7 @@
 	</insert>
 	
 	<!-- 查询学生本人总学分 -->
-	<select id="queryCreditsSum" resultType="java.lang.Integer">
+	<select id="queryCreditsSum" resultType="java.lang.String">
 		select sum(credits) from grade where sid = #{sid}
 	</select>
 

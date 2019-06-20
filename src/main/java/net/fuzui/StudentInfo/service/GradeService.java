@@ -16,7 +16,7 @@ public interface GradeService {
     /**
      * 	查询学生自己的总学分
      */
-    public int queryCreditsSum(String sid);
+    public String queryCreditsSum(String sid);
     /**
      * 	学生查看本人已修改课程
      */
