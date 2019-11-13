@@ -1,0 +1,135 @@
+/.metadata/
+
+/.recommenders/
+/word/
+### gradle ###
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.settings/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+rebel.xml
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+### maven ###
+target/
+*.war
+*.ear
+*.zip
+*.tar
+*.tar.gz
+*.gz
+
+### logs ####
+*.log.gz
+logs/
+/logs
+/logs/
+*.log
+
+### temp ignore ###
+*.cache
+*.diff
+*.patch
+*.tmp
+*.java~
+*.properties~
+*.xml~
+
+### system ignore ###
+.DS_Store
+Thumbs.db
+Servers
+.metadata
+upload
+gen_code
+
+.DS_Store
+node_modules
+
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+package-lock.json
+# Lock File
+package-lock.json
+yarn.lock
+
+
