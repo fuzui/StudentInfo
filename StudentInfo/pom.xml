@@ -193,13 +193,14 @@
     </dependency>
 
 
-    <!-- mongodb -->
+    <!-- mongodb 
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-mongodb</artifactId>
       <version>1.5.5.RELEASE</version>
     </dependency>
-
+	-->
+	
     <!--JSONObject-->
     <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
     <dependency>
