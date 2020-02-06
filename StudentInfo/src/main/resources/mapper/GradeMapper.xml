@@ -7,7 +7,7 @@
     <!-- 为了返回List，类型而定义的resultMap -->
     <resultMap type="Grade" id="resultListGrade">
         <result column="cid" property="cid" />
-        <result column="sid" property="tname" />
+        <result column="sid" property="sid" />
         <result column="grade" property="grade" />
         <result column="credits" property="credits" />
     </resultMap>
@@ -16,7 +16,7 @@
     <resultMap type="Grade" id="endCourseResult">
         <result column="cid" property="cid" />
         <result column="cname" property="cname" />
-        <result column="sid" property="tname" />
+        <result column="sid" property="sid" />
         <result column="grade" property="grade" />
         <result column="credits" property="credits" />
     </resultMap>
