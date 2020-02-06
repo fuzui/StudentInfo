@@ -34,7 +34,7 @@
 ![](https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/20190415162534.png)
 ![enter description here](https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/1555316814587.png)
 ![](https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/20190415162832.png)
-更多请查看演示：[studentInfo.fuzui.net](studentInfo.fuzui.net)
+更多请查看演示：[http://studentInfo.fuzui.net/StudentInfo](http://studentInfo.fuzui.net/StudentInfo)
 
 #### 四、编写日志 ####	
 **第一步计划：**
