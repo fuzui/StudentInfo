@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.fuzui.StudentInfo.mapper.CourseMapper">
+
+
+    <!-- 为了返回List，类型而定义的resultMap -->
+    <resultMap type="Course" id="resultListCourse">
+        <result column="cid" property="cid" />
+        <result column="cname" property="cname" />
+        <result column="cintroduction" property="cintroduction" />
+        <result column="type" property="type" />
+        <result column="belongcoll" property="belongcoll" />
+        <result column="belongpro" property="belongpro" />
+
+    </resultMap>
+
+    <!-- 添加课程信息 -->
+    <insert id="insertCourse" parameterType="Course">
+		insert into course(cid,cname,cintroduction,type,belongcoll,belongpro)
+		value (#{cid}, #{cname},#{cintroduction},#{type},#{belongcoll},#{belongpro})
+	</insert>
+
+    <!-- 根据课程编号删除课程信息 -->
+    <delete id="deleteCourse" parameterType="String">
+		delete from course where cid=#{cid}
+	</delete>
+
+    <!-- 根据课程编号修改学生信息 -->
+    <update id="modifyCourse" parameterType="Course">
+		update course set
+		cname=#{cname},cintroduction=#{cintroduction},type=#{type},belongcoll=#{belongcoll},belongpro=#{belongpro}
+		where cid =#{cid}
+	</update>
+
+    <!-- 根据课程编号查询出课程实体 -->
+    <select id="getByCouCid" parameterType="String" resultType="net.fuzui.StudentInfo.pojo.Course">
+		SELECT * from course c where c.cid = #{cid} and not exists(select 1 from grade g where g.cid=c.cid )
+	</select>
+
+    <!-- 查询全部课程 -->
+    <select id="selectCourseBySql" parameterType="map" resultMap="resultListCourse">
+		select * from course c where not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
+	</select>
+
+    <!-- 根据课程编号查询课程信息 -->
+    <select id="getByCourseCid" parameterType="map" resultMap="resultListCourse">
+		select * from course c where c.cid = #{cid} and not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
+	</select>
+
+    <!-- 根据课程名称查询课程信息 -->
+    <select id="getByCourseCname" parameterType="map" resultMap="resultListCourse">
+		select * from course c where c.cname = #{cname} and not exists(select 1 from grade g where g.cid=c.cid )<!--  limit #{pageNo} , #{pageSize} -->
+	</select>
+
+    <!-- 根据学院查询学生信息 -->
+    <select id="getByCourseCol" parameterType="map" resultMap="resultListCourse">
+		select * from course c where c.belongcoll = #{belongcoll} and not exists(select 1 from grade g where g.cid=c.cid ) <!-- limit #{pageNo} , #{pageSize} -->
+	</select>
+
+    <!-- 根据课程类型查询学生信息 -->
+    <select id="getByCourseType" parameterType="map" resultMap="resultListCourse">
+		select * from course c where c.type = #{type} and not exists(select 1 from grade g where g.cid=c.cid )<!-- limit #{pageNo} , #{pageSize} -->
+	</select>
+
+    <!-- ajax验证课程编号是否存在 -->
+    <select id="ajaxQueryByCid" resultType="java.lang.String">
+		select cid from course where cid = #{cid}
+	</select>
+
+</mapper>
